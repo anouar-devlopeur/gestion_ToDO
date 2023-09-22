@@ -55,14 +55,19 @@ void ajouterSeul(){
 		    k++;	    
 		
 	}
-	void affiche(){
+	void affiche(){ 	
+	printf("******************                     les donnne  de tache To DO                           *********************** \n");
+		    printf("     Identifiant      |        Titre         |     Description          |   Deadline         |  Status          |\n");
 			for(i=0;i<k;i++){
-			printf("******************les donnne  de tache To DO*********************** \n");
-     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
-     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
-     	   	printf("                               Description :    %s\n"                             ,T[i].description);
-     	   	printf("                               Deadline :       %d / %d / %d\n"                   ,T[i].line.jours,T[i].line.moins,T[i].line.annne);
-     	   	printf("                               Status :         %s\n"                             ,T[i].status);	
+		
+		
+		    printf("        %d             |        %s           |        %s                   |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+
+//     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
+//     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
+//     	   	printf("                               Description :    %s\n"                             ,T[i].description);
+//     	   	printf("                               Deadline :       %d / %d / %d\n"                   ,T[i].line.jours,T[i].line.moins,T[i].line.annne);
+//     	   	printf("                               Status :         %s\n"                             ,T[i].status);	
      	   	
 		 }
 	}
@@ -184,14 +189,17 @@ void affdidlin(){
                      for(i=0;i<k;i++){
                     int jours = ((T[i].line.annne-a) * 365 +
 					           (T[i].line.moins-m) * 30 + 
-					                (j-T[i].line.jours ));
+					                (T[i].line.jours-j ));
 					    if(jours<=3){
-					    		printf("******************les donnne  de tache To DO*********************** \n");
-     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
-     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
-     	   	printf("                               Description :    %s\n"                             ,T[i].description);
-     	   	printf("                               Deadline :       %d / %d / %d\n"                   ,T[i].line.jours,T[i].line.moins,T[i].line.annne);
-     	   	printf("                               Status :         %s\n"                             ,T[i].status);	
+					    		
+           printf("     Identifiant      |        Titre         |     Description              |   Deadline         |  Status          |\n");
+		   printf("        %d             |        %s           |        %s               |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+
+//     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
+//     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
+//     	   	printf("                               Description :    %s\n"                             ,T[i].description);
+//     	   	printf("                               Deadline :       %d / %d / %d\n"                   ,T[i].line.jours,T[i].line.moins,T[i].line.annne);
+//     	   	printf("                               Status :         %s\n"                             ,T[i].status);	
 					    	
 						}
 					 }
@@ -269,9 +277,7 @@ void Modifier(){
                     scanf(" %[^\n]",T[i].description); 
                     printf("description modifié.\n");
                 }
-                else {
-                	printf("Aucune tâche Modifier \n");
-				}
+               
             } 
           
             break;
@@ -285,9 +291,7 @@ void Modifier(){
                     scanf("%s",T[i].status);
                     printf("statut modifié.\n");
                 }
-                else {
-                	printf("Aucune tâche Modifier \n");
-				}
+               
             }
             
             break;
@@ -314,9 +318,7 @@ void Modifier(){
 				    } while(T[i].line.annne < 0 || T[i].line.moins < 1 || T[i].line.moins > 12 || T[i].line.jours < 1);
                     printf("deadline modifié.\n");
                 }
-                else {
-                	printf("Aucune tâche Modifier \n");
-				}
+               
             }
             
             break;
@@ -365,11 +367,14 @@ void Rechidentique(){
 					int chek=0;
 					for(i=0;i<k;i++){
 						if(T[i].identifiant==id){
-						    printf("---------------------------------------identifiant : %d\n",T[i].identifiant);
-				     	   	printf("---------------------------------------titre : %s \n",T[i].titre);
-				     	   	printf("---------------------------------------description : %s\n",T[i].description);
-				     	   	printf("---------------------------------------deadline : %d / %d / %d\n",T[i].line.jours,T[i].line.moins,T[i].line.annne);
-				     	   	printf("---------------------------------------status : %s\n",T[i].status);
+							printf("     Identifiant      |        Titre         |     Description              |   Deadline         |  Status          |\n");
+		                    printf("        %d             |        %s           |        %s               |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+
+//						    printf("---------------------------------------identifiant : %d\n",T[i].identifiant);
+//				     	   	printf("---------------------------------------titre : %s \n",T[i].titre);
+//				     	   	printf("---------------------------------------description : %s\n",T[i].description);
+//				     	   	printf("---------------------------------------deadline : %d / %d / %d\n",T[i].line.jours,T[i].line.moins,T[i].line.annne);
+//				     	   	printf("---------------------------------------status : %s\n",T[i].status);
 				     	   	chek=1;
 						}
 						}
@@ -383,14 +388,16 @@ void RechTitre(){
 				    int chek = 0;
 				    printf("Rechercher une tâche par son titre : ");
 				    scanf(" %49[^\n]", titre);
-				
+				    printf("  Identifiant  |     Titre      |   Description          |   Deadline     |  Status             |\n");
 				    for ( i = 0; i < k; i++) {
 				        if (strcmp(T[i].titre, titre) == 0) {
-				            printf("-------------------------------------Identifiant : %d\n", T[i].identifiant);
-				            printf("-------------------------------------Titre : %s\n", T[i].titre);
-				            printf("-------------------------------------Description : %s\n", T[i].description);
-				            printf("-------------------------------------Deadline : %d / %d / %d\n", T[i].line.jours, T[i].line.moins, T[i].line.annne);
-				            printf("-------------------------------------Statut : %s\n", T[i].status);
+		                        printf(" %d                |%s             |%s|%d / %d / %d           |%s            |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+
+//							printf("-------------------------------------Identifiant : %d\n", T[i].identifiant);
+//				            printf("-------------------------------------Titre : %s\n", T[i].titre);
+//				            printf("-------------------------------------Description : %s\n", T[i].description);
+//				            printf("-------------------------------------Deadline : %d / %d / %d\n", T[i].line.jours, T[i].line.moins, T[i].line.annne);
+//				            printf("-------------------------------------Statut : %s\n", T[i].status);
 				            chek = 1;
 				        }
 				    }
@@ -463,9 +470,9 @@ void Rech(){
                      int m=dt.tm_mon+1;
                      int a=dt.tm_year+1900;
                      for(i=0;i<k;i++){
-                    int jours = ((a-T[i].line.annne) * 365 +
-					           (m-T[i].line.moins) * 30 + 
-					                (j-T[i].line.jours ));
+                    int jours = ((T[i].line.annne-a) * 365 +
+					           (T[i].line.moins-m) * 30 + 
+					                (T[i].line.jours-j));
                    printf("------------------------------------------------------------------------------------------\n");
 				   printf("---------------------------nombre de jours restants:         ----------------------------------\n");
 				   printf("------------------------------------identique  :   %d   ----------------------------------\n",T[i].identifiant);
@@ -482,7 +489,7 @@ void afficherMenuStatistiques() {
     printf(" *                      Choisissez une option parmi les suivantes :                              *\n");
     printf(" *                   1 - Afficher le nombre total de tâches                                      *\n");
     printf(" *                   2 - Afficher le nombre de tâches complètes et incomplètes                   *\n");
-    printf(" *                  3 -Afficher le nombre de jours restants jusqu'au délai de chaque tâche.      *\n");
+    printf(" *                   3-Afficher le nombre de jours restants jusqu'au délai de chaque tâche.      *\n");
     printf(" *                   0 - return                                                                  *\n");
     printf(" *-----------------------------------------------------------------------------------------------*\n");
     
@@ -579,14 +586,17 @@ int main(){
 							                         afficherMenuStatistiques();
 										             break;                 
 										case 0 :    
-										            system("cls");
+										            
 										            savefichier();
 										            system("cls");
 										            printf("Quitter");
+										            return ;
+										         
 										             break;
 										             
 									   }
 								   }while(choix!=0);
+								     
 								   
 	return 0;
 }
