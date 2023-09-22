@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<string.h>
+//struct
       typedef struct{
         	int jours,annne,moins;
 		}deadline;
@@ -12,12 +13,11 @@
             deadline line;
         	char status[50];
 		 }tache;
-      
+ //variable global     
 int i,j,k=0;
 tache T[100];
 tache tri;
 
-FILE* fichier=NULL;
 
 
 
@@ -61,7 +61,7 @@ void ajouterSeul(){
 			for(i=0;i<k;i++){
 		
 		
-		    printf("        %d             |        %s           |        %s                   |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+		    printf("        %d             |        %s           |    %s                 |   %d / %d / %d    |   %s       |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
 
 //     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
 //     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
@@ -124,7 +124,9 @@ void MenuAjourt(){
 					         affiche();
 					         MenuAjourt();
 					        break;
-                	case 0: return ;
+                	case 0: system("cls");
+					       return ;
+                	      
 					        break;
 				}
 	
@@ -172,14 +174,15 @@ void trideadline(){
 }
 
      }
-	//a moins 3jours
+	//function a moins 3jours
 void affdidlin(){
 	    printf(" ---------------------------------------------------------------------------------------\n");
-	    printf("                                                                                        \n");
-		printf("-                               les donnne  de tache To DO                              \n");
-		printf("                                    au moins      3 jours                               \n");
+	    printf("-                                                                                      -\n");
+		printf("-                               les donnne  de tache To DO                             -\n");
+		printf("-                                    au moins      3 jours                             -\n");
 		printf("-                                                                                      -\n");
 		printf("----------------------------------------------------------------------------------------\n");
+	 //typedef struct predefinie  /  function time ()
 	   time_t t=time(NULL);
                      // struct sur time.h 
                      struct tm dt=*localtime(&t);
@@ -190,10 +193,10 @@ void affdidlin(){
                     int jours = ((T[i].line.annne-a) * 365 +
 					           (T[i].line.moins-m) * 30 + 
 					                (T[i].line.jours-j ));
-					    if(jours<=3){
+					    if(jours>0&&jours<=3){
 					    		
            printf("     Identifiant      |        Titre         |     Description              |   Deadline         |  Status          |\n");
-		   printf("        %d             |        %s           |        %s               |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+		   printf("        %d            |        %s           |        %s               |   %d / %d / %d    |   %s        |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
 
 //     	   	printf("                               Identifiant :    %d\n"                             ,T[i].identifiant);
 //     	   	printf("                               Titre :          %s \n"                            ,T[i].titre);
@@ -357,7 +360,7 @@ void supprimer(){
 	   } else {
 	   	    printf(" identique  supprimer     \n");
 	   }
-//	   affiche();
+
 }
 //Rechercher les Tâches :
 void Rechidentique(){
@@ -521,29 +524,7 @@ void afficherMenuStatistiques() {
 										                }
 }
 
-
-
-void savefichier(){
-	/*
-	r=read;
-	w=write
-	a=appaned
-	*/
-	fichier =fopen("file.txt","w");
-	if(fichier==NULL) printf("fichier n'exsit pas\n");
-	else {
-			for(i=0;i<k;i++){
-			fprintf(fichier,"******************les donnne  de tache To DO*********************** \n");
-     	   	fprintf(fichier,"                               Identifiant :    %d\n"                             ,T[i].identifiant);
-     	   	fprintf(fichier,"                               Titre :          %s \n"                            ,T[i].titre);
-     	   	fprintf(fichier,"                               Description :    %s\n"                             ,T[i].description);
-     	   	fprintf(fichier,"                               Deadline :       %d / %d / %d\n"                   ,T[i].line.jours,T[i].line.moins,T[i].line.annne);
-     	   	fprintf(fichier,"                               Status :         %s\n"                             ,T[i].status);	
-     	   	
-		 }
-		 fclose(fichier);
-	}
-}
+//Menuprancioal
  
 int main(){
 
@@ -587,10 +568,10 @@ int main(){
 										             break;                 
 										case 0 :    
 										            
-										            savefichier();
+										            
 										            system("cls");
 										            printf("Quitter");
-										            return ;
+										            return 0;
 										         
 										             break;
 										             
