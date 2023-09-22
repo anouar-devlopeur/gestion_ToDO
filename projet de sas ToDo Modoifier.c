@@ -282,6 +282,7 @@ void Modifier(){
                 }
                
             } 
+               Modifier();
           
             break;
 
@@ -296,7 +297,7 @@ void Modifier(){
                 }
                
             }
-            
+               Modifier();
             break;
 
         case 3:
@@ -323,19 +324,19 @@ void Modifier(){
                 }
                
             }
-            
+               Modifier();
             break;
 
         case 0:
           	system("cls");
-             return ;
+             main();
 
             break;
 
         default:
             printf("Aucune tâche  n'a été trouvée (on a 1 - 2 - 3 - 0)\n"); break;
     }
-    Modifier();
+ 
 }
 
 
@@ -343,7 +344,7 @@ void Modifier(){
 void supprimer(){
 	   int sup;
 	   int chek=0;
-	   
+	   printf("vous avez supprimer les tache :\n");
 	   printf("donner un nomber supprimer : ");
 	   scanf("%d",&sup);
 	   for(i=0;i<k;i++){
@@ -391,10 +392,10 @@ void RechTitre(){
 				    int chek = 0;
 				    printf("Rechercher une tâche par son titre : ");
 				    scanf(" %49[^\n]", titre);
-				    printf("  Identifiant  |     Titre      |   Description          |   Deadline     |  Status             |\n");
+				    printf("  Identifiant  |     Titre      |   Description          |   Deadline     |  Status                 |\n");
 				    for ( i = 0; i < k; i++) {
 				        if (strcmp(T[i].titre, titre) == 0) {
-		                        printf(" %d                |%s             |%s|%d / %d / %d           |%s            |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
+		                        printf(" %d                |%s             |%s          |%d / %d / %d           |%s            |\n",T[i].identifiant,T[i].titre,T[i].description,T[i].line.jours,T[i].line.moins,T[i].line.annne ,T[i].status);
 
 //							printf("-------------------------------------Identifiant : %d\n", T[i].identifiant);
 //				            printf("-------------------------------------Titre : %s\n", T[i].titre);
@@ -410,7 +411,7 @@ void RechTitre(){
 				    }
 }
 // Menu Recherche par tache identifiant et titre
-void Rech(){
+void MenuRech(){
 	        printf(" ------------------------------------------- Menu Recherche --------------------------------------------\n");
             printf(" *                                         Rechercher les Tâches :                                     *\n");
             printf(" *                                       1-Rechercher une tâche par son Identifiant                    *\n");
@@ -432,7 +433,7 @@ void Rech(){
 							system("cls");
 							 main();
 						}
-						Rech();
+						MenuRech();
 
 }
 //Statistiques
@@ -454,10 +455,10 @@ void Rech(){
 							  }
 						  }
 						    
-				   printf("------------------------------------------------------------------------------------------\n");
-				   printf("---------------------------le nombre de tâches:         ----------------------------------\n");
-				   printf("------------------------------------complètes  :   %d   ----------------------------------\n",comp);
-				   printf("-----------------------------------incomplètes   :   %d------------------------------------\n",inc);
+				   printf("-----------------------------------------------------------------------------------------------\n");
+				   printf("                                le nombre de tâches:         ----------------------------------\n");
+				   printf("----------------------              complètes  :   %d   ----------------------------------\n",comp);
+				   printf("----------------------             incomplètes   :   %d    --------------------------------\n",inc);
 				   		
 			
 				    
@@ -492,7 +493,7 @@ void afficherMenuStatistiques() {
     printf(" *                      Choisissez une option parmi les suivantes :                              *\n");
     printf(" *                   1 - Afficher le nombre total de tâches                                      *\n");
     printf(" *                   2 - Afficher le nombre de tâches complètes et incomplètes                   *\n");
-    printf(" *                   3-Afficher le nombre de jours restants jusqu'au délai de chaque tâche.      *\n");
+    printf(" *                   3 -Afficher le nombre de jours restants jusqu'au délai de chaque tâche.      *\n");
     printf(" *                   0 - return                                                                  *\n");
     printf(" *-----------------------------------------------------------------------------------------------*\n");
     
@@ -524,6 +525,10 @@ void afficherMenuStatistiques() {
 										                }
 }
 
+void Quitter(){
+		system("cls");			     
+		printf("Quitter");
+}
 //Menuprancioal
  
 int main(){
@@ -561,7 +566,7 @@ int main(){
 										             main();
 										             break;
 								   		case 5:      system("cls");
-										             Rech();
+										             MenuRech();
 										             break;
 								   		case 6:      system("cls");
 							                         afficherMenuStatistiques();
@@ -570,14 +575,15 @@ int main(){
 										            
 										            
 										            system("cls");
-										            printf("Quitter");
-										            return 0;
+										            system("cls");
+										             Quitter();
+										            exit(0);
+          								            
 										         
 										             break;
 										             
 									   }
 								   }while(choix!=0);
-								     
-								   
+						   
 	return 0;
 }
